@@ -1,53 +1,76 @@
-﻿body{
-height: 100%; 
-max-height: 100%;
-background-image: linear-gradient(0deg,#87cefa,#f0f8ff);
+﻿
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: linear-gradient(0deg, #87cefa, #f0f8ff);
 }
 
 #oldal {
-	
-   margin-left: auto;
-   margin-right: auto;
-  width: 1200px;
-  background-color:#f0f8ff;
-}
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    grid-template-areas:
+        "fej fej"
+        "bal jobb";
 
+    max-width: 1200px;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #f0f8ff;
+}
 
 #fej {
-	
-  float: left;
-  font-size: 40px;
-  margin-top: -0.7em;
-	text-align: center;
-   margin-left: auto;
-   margin-right: auto;
-  width: 1200px;
-  height:133px;
-  /*background-color:#00FFFF;*/
-  background-color:#f0f8ff;
+    grid-area: fej;
+    min-height: 133px;
+    text-align: center;
+    background-color: #f0f8ff;
+    font-size: 40px;
 }
 
-
 #bal {
-background-image: linear-gradient(0deg,#87cefa,#f0f8ff);
- margin-top: 0px;
-float: left;
-width: 189px;
-height: 820px; 
+    grid-area: bal;
+    padding: 15px;
+    background-image: linear-gradient(0deg, #87cefa, #f0f8ff);
 }
 
 #jobb {
-	font-family:Times New Roman;
-	float: left;
-		width:1000px;     
-        height: 1220px;
-	background-color:#F7E8F6;
-  padding-right: 10px;
+    grid-area: jobb;
+    min-width: 0;
+    min-height: 80vh;
+    padding: 20px;
+    font-family: "Times New Roman", serif;
+    background-color: #F7E8F6;
 }
+
 #kep {
-  float: left;
-  width:220px;     
-  height:1220px;
-  background-color:#000000;
-  padding-right:0px;
+    width: 220px;
+    background-color: black;
+}
+
+/* Mobiltelefonos megjelenítés */
+
+@media (max-width: 650px) {
+    #oldal {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "fej"
+            "bal"
+            "jobb";
+    }
+
+    #fej {
+        font-size: 28px;
+    }
+
+    #bal {
+        padding: 10px;
+    }
+
+    #jobb {
+        padding: 15px;
+    }
 }
